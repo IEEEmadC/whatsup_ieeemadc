@@ -10,12 +10,13 @@ package pt.up.fe.nuieee.whatsup;
 public final class R {
     public static final class array {
         /**  Nav Drawer List Item Icons 
- Keep them in order as the titles are in 
          */
-        public static final int nav_drawer_icons=0x7f070001;
+        public static final int nav_drawer_icons=0x7f070002;
         /**  Nav Drawer Menu Items 
          */
         public static final int nav_drawer_items=0x7f070000;
+        public static final int nav_drawer_loggedin_icons=0x7f070003;
+        public static final int nav_drawer_loggedin_items=0x7f070001;
     }
     public static final class attr {
     }
@@ -69,12 +70,10 @@ public final class R {
         public static final int activity_main=0x7f030000;
         public static final int drawer_list_item=0x7f030001;
         public static final int feed_item=0x7f030002;
-        public static final int fragment_community=0x7f030003;
-        public static final int fragment_find_people=0x7f030004;
-        public static final int fragment_home=0x7f030005;
-        public static final int fragment_pages=0x7f030006;
-        public static final int fragment_photos=0x7f030007;
-        public static final int fragment_whats_hot=0x7f030008;
+        public static final int fragment_home=0x7f030003;
+        public static final int fragment_my_sb=0x7f030004;
+        public static final int fragment_new_activity=0x7f030005;
+        public static final int fragment_top_sb=0x7f030006;
     }
     public static final class menu {
         public static final int main=0x7f090000;

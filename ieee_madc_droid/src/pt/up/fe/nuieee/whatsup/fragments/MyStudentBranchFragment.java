@@ -7,16 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class PagesFragment extends Fragment {
+public class MyStudentBranchFragment extends Fragment {
 	
-	public PagesFragment(){}
+	public MyStudentBranchFragment()
+	{
+	}
 	
 	@Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
  
-        View rootView = inflater.inflate(R.layout.fragment_pages, container, false);
-         
+        View rootView = inflater.inflate(R.layout.fragment_my_sb, container, false);
         return rootView;
     }
 }
