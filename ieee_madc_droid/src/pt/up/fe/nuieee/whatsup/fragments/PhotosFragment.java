@@ -1,20 +1,21 @@
-package info.androidhive.slidingmenu;
+package pt.up.fe.nuieee.whatsup.fragments;
 
+import pt.up.fe.nuieee.whatsup.R;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class HomeFragment extends Fragment {
+public class PhotosFragment extends Fragment {
 	
-	public HomeFragment(){}
+	public PhotosFragment(){}
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
  
-        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_photos, container, false);
          
         return rootView;
     }

@@ -1,10 +1,10 @@
-package info.androidhive.slidingmenu.adapter;
+package pt.up.fe.nuieee.whatsup.adapter;
 
-import info.androidhive.slidingmenu.R;
-import info.androidhive.slidingmenu.model.NavDrawerItem;
 
 import java.util.ArrayList;
 
+import pt.up.fe.nuieee.whatsup.R;
+import pt.up.fe.nuieee.whatsup.model.NavDrawerItem;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;

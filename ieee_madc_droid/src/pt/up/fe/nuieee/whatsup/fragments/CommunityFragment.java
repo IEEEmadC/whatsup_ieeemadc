@@ -1,5 +1,6 @@
-package info.androidhive.slidingmenu;
+package pt.up.fe.nuieee.whatsup.fragments;
 
+import pt.up.fe.nuieee.whatsup.R;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;

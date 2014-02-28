@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:padding="6dip"
+    android:layout_margin="5dp"
+    android:rowCount="2"
+    android:columnCount="3"
+    >
+
+    <ImageView
+        android:id="@+id/feed_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_marginRight="6dip"
+        android:contentDescription="TODO"
+        android:layout_row="0"
+        android:layout_rowSpan="2"
+        android:src="@drawable/ic_whats_hot" />
+
+    <TextView
+        android:id="@+id/feed_title"
+        android:layout_width="wrap_content"
+        android:layout_column="1"
+        android:layout_gravity="fill_horizontal"
+        android:layout_row="0"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="Name"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/feed_studentbranch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill_horizontal"
+        android:layout_row="1"
+        android:gravity="center_vertical"
+        android:text="NuIEEE"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/feed_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="2"
+        android:layout_gravity="right"
+        android:layout_row="0"
+        android:gravity="center_vertical"
+        android:text="Date"
+        android:textSize="16sp" />
+
+</GridLayout>

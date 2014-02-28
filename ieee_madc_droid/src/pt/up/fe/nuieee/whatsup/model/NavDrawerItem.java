@@ -1,4 +1,4 @@
-package info.androidhive.slidingmenu.model;
+package pt.up.fe.nuieee.whatsup.model;
 
 public class NavDrawerItem {
 	
