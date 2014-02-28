@@ -53,7 +53,8 @@ public final class R {
         public static final int list_selector=0x7f02000b;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a000b;
+        public static final int action_settings=0x7f0a000c;
+        public static final int action_share=0x7f0a000b;
         public static final int counter=0x7f0a0005;
         public static final int drawer_layout=0x7f0a0000;
         public static final int feed_date=0x7f0a0009;
@@ -76,14 +77,16 @@ public final class R {
         public static final int fragment_top_sb=0x7f030006;
     }
     public static final class menu {
-        public static final int main=0x7f090000;
+        public static final int action_context_event=0x7f090000;
+        public static final int main=0x7f090001;
     }
     public static final class string {
         public static final int action_settings=0x7f060001;
+        public static final int action_share=0x7f060005;
         public static final int app_name=0x7f060000;
         /**  Content Description 
          */
-        public static final int desc_list_item_icon=0x7f060005;
+        public static final int desc_list_item_icon=0x7f060006;
         public static final int drawer_close=0x7f060004;
         public static final int drawer_open=0x7f060003;
         public static final int hello_world=0x7f060002;

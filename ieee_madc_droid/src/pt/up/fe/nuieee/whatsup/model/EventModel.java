@@ -8,7 +8,14 @@ public class EventModel {
 	private String StudentBranch;
 	private String[] tags;
 	private Date date;
+	private String description;
 	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public String getTitle() {
 		return title;
 	}
