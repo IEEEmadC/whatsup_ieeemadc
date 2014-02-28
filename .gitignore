@@ -1,0 +1,10 @@
+# built application files
+*.apk
+*.ap_
+*.dex
+*.class
+*.o
+*.so
+
+# generated files
+ieee_madc_droid/bin/
