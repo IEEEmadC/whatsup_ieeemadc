@@ -3,6 +3,7 @@ package pt.up.fe.nuieee.whatsup.adapter;
 import pt.up.fe.nuieee.whatsup.R;
 import pt.up.fe.nuieee.whatsup.model.EventModel;
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
