@@ -1,6 +1,5 @@
 package pt.up.fe.nuieee.whatsup.models;
 
-import java.util.Date;
 
 public class EventModel {
 	

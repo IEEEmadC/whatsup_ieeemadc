@@ -1,24 +1,25 @@
 package pt.up.fe.nuieee.whatsup.fragments;
 
-import pt.up.fe.nuieee.whatsup.R;
-import android.app.Fragment;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import java.util.ArrayList;
 
-public class TopStudentBranchesFragment extends Fragment {
+import pt.up.fe.nuieee.whatsup.adapter.TopSBListAdapter;
+import pt.up.fe.nuieee.whatsup.models.TopItemModel;
+import android.app.ListFragment;
+import android.os.Bundle;
+import android.view.View;
+
+public class TopStudentBranchesFragment extends ListFragment {
 	
-	public TopStudentBranchesFragment()
-	{
+	ArrayList<TopItemModel> topItems;
+	
+	public TopStudentBranchesFragment() {
+	}
+
+	@Override
+	public void onViewCreated(View view, Bundle savedInstanceState) {
+		topItems = new ArrayList<TopItemModel>();
+		TopSBListAdapter mAdapter = new TopSBListAdapter(getActivity(), topItems);
 	}
 	
-	@Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
- 
-        View rootView = inflater.inflate(R.layout.fragment_top_sb, container, false);
-         
-        return rootView;
-    }
+	
 }

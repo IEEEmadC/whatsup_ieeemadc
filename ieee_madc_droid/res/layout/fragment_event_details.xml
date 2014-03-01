@@ -23,7 +23,7 @@
         android:background="@color/white" >
 
 	    <TextView
-	        android:id="@+id/tv_details"
+	        android:id="@+id/tv_title"
 	        android:layout_marginLeft="12dp"
 	        android:layout_marginRight="12dp"
 	        android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
 	        android:textStyle="bold" />
 	    
 	    <ImageView
-	        android:id="@+id/icon"
+	        android:id="@+id/iv_event_icon"
 	        android:layout_width="25dp"
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="12dp"

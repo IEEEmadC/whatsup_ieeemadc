@@ -5,7 +5,6 @@ import java.util.List;
 import pt.up.fe.nuieee.whatsup.R;
 import pt.up.fe.nuieee.whatsup.models.EventModel;
 import android.app.Activity;
-import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class FeedListAdapter  extends ArrayAdapter<EventModel> {
+public class FeedListAdapter extends ArrayAdapter<EventModel> {
  
 	private final Activity context;
 	private final List<EventModel> events;
