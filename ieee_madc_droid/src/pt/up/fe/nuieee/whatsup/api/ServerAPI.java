@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pt.up.fe.nuieee.whatsup.models.EventModel;
+import pt.up.fe.nuieee.whatsup.models.TopItemModel;
 
 import com.google.gson.Gson;
 import com.mongodb.BasicDBObject;
@@ -60,6 +61,33 @@ public class ServerAPI {
 	}
 	
 	public static List<EventModel> getEvents() throws UnknownHostException {
+		
+		ArrayList<EventModel> events = new ArrayList<EventModel>();
+		for (DBObject element : queryEventsList()) {
+			
+			String elementJson = ((BasicDBObject) element).toString();
+			
+			EventModel eventModel = new Gson().fromJson(elementJson, EventModel.class);
+			
+			events.add(eventModel);
+		}
+		
+		return events;
+	}
+	
+	private static List<DBObject> queryTopSBList() throws UnknownHostException 
+	{
+		checkCollections();
+		ArrayList<DBObject> events = new ArrayList<DBObject>(); 
+		DBCursor eventsCursor = dbCollectionEvents.find();
+		
+		while (eventsCursor.hasNext()) {
+			events.add(eventsCursor.next());
+		}
+		return events;
+	}
+	
+	public static List<TopItemModel> getTopSBs() throws UnknownHostException {
 		
 		ArrayList<EventModel> events = new ArrayList<EventModel>();
 		for (DBObject element : queryEventsList()) {

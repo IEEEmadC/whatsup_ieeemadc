@@ -13,7 +13,7 @@ public class TopStudentBranchesFragment extends ListFragment {
 	ArrayList<TopItemModel> topItems;
 	
 	public TopStudentBranchesFragment() {
-	}
+	} 
 
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
