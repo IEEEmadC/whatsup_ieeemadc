@@ -7,6 +7,7 @@ import pt.up.fe.nuieee.whatsup.models.EventModel;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -39,8 +40,16 @@ public class EventDetailsFragment extends Fragment {
         mEvent = new Gson().fromJson(getArguments().getString("event"), EventModel.class);
         tv_title.setText(mEvent.getTitle());
         tv_description.setText(mEvent.getDescription());
+        
+        ((MainActivity) getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(false);
 	}
 	
+	@Override
+	public void onDestroyView() {
+		super.onDestroyView();
+        ((MainActivity) getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(true);
+	}
 	
+
 
 }

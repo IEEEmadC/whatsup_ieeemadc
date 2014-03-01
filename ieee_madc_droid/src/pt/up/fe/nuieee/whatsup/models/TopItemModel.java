@@ -6,7 +6,7 @@ public class TopItemModel {
 	private int ranking;
 	private int score;
 	
-	public String getSBname() {
+	public String getStudenBranchName() {
 		return studentBranchName;
 	}
 	public void setStudentBranchName(String studentBranchName) {

@@ -50,9 +50,9 @@ public class TopSBListAdapter  extends ArrayAdapter<TopItemModel> {
 		ViewHolder holder = (ViewHolder) rowView.getTag();
 
 
-		holder.ranking.setText(topItems.get(position).getRanking());
-		holder.score.setText(topItems.get(position).getScore());
-		holder.studentBranch.setText(topItems.get(position).getSBname());
+		holder.ranking.setText("#" + topItems.get(position).getRanking());
+		holder.score.setText("" + topItems.get(position).getScore());
+		holder.studentBranch.setText(topItems.get(position).getStudenBranchName());
 
 		holder.type.setImageResource(R.drawable.ic_communities);
 

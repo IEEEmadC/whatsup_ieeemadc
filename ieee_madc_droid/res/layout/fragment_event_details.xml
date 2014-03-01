@@ -32,7 +32,8 @@
 	        android:layout_alignParentLeft="true"
 	        android:text="Title"
 	        android:textAppearance="?android:attr/textAppearanceLarge"
-	        android:textStyle="bold" />
+	        android:textStyle="bold"
+	        />
 	    
 	    <ImageView
 	        android:id="@+id/iv_event_icon"
