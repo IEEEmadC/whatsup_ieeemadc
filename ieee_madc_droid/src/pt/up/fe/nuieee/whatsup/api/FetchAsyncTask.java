@@ -2,14 +2,17 @@ package pt.up.fe.nuieee.whatsup.api;
 
 import java.net.UnknownHostException;
 
+import pt.up.fe.nuieee.whatsup.models.EventModel;
+import pt.up.fe.nuieee.whatsup.models.TopItemModel;
+
 import android.os.AsyncTask;
 
-public class FetchEventsTask<T> extends AsyncTask<Void, Void, T> {
+public class FetchAsyncTask<T> extends AsyncTask<Class, Void, T> {
 
 	private AsyncTaskHandler<T> mHandler;
 	private Exception mError;
 
-	public FetchEventsTask(AsyncTaskHandler<T> handler) {
+	public FetchAsyncTask(AsyncTaskHandler<T> handler) {
 		this.mHandler = handler;
 	}
 
@@ -25,9 +28,16 @@ public class FetchEventsTask<T> extends AsyncTask<Void, Void, T> {
 	}
 
 	@Override
-	protected T doInBackground(Void... params) {
+	protected T doInBackground(Class... params) {
 		try {
-			return (T) ServerAPI.getEvents();
+			if (params[0] == EventModel.class)
+			{
+				return (T) ServerAPI.getEvents();
+			}
+			else if (params[0] == TopItemModel.class)
+			{
+				return (T) ServerAPI.getTopSBs();
+			}
 		} catch (UnknownHostException e) {
 			mError = e;
 		}

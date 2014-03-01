@@ -5,7 +5,7 @@ public class EventModel {
 	
 	private String title;
 	private String type;
-	private String StudentBranch;
+	private String studentBranch;
 	private String[] tags;
 	private String date;
 	private String description;
@@ -30,10 +30,10 @@ public class EventModel {
 		this.type = type;
 	}
 	public String getStudentBranch() {
-		return StudentBranch;
+		return studentBranch;
 	}
 	public void setStudentBranch(String studentBranch) {
-		StudentBranch = studentBranch;
+		this.studentBranch = studentBranch;
 	}
 	public String[] getTags() {
 		return tags;

@@ -2,27 +2,27 @@ package pt.up.fe.nuieee.whatsup.models;
 
 public class TopItemModel {
 	
-	String SBname;
-	String Ranking;
-	String Score;
+	private String studentBranchName;
+	private int ranking;
+	private int score;
 	
 	public String getSBname() {
-		return SBname;
+		return studentBranchName;
 	}
-	public void setSBname(String sBname) {
-		SBname = sBname;
+	public void setStudentBranchName(String studentBranchName) {
+		this.studentBranchName = studentBranchName;
 	}
-	public String getRanking() {
-		return Ranking;
+	public int getRanking() {
+		return ranking;
 	}
-	public void setRanking(String ranking) {
-		Ranking = ranking;
+	public void setRanking(int ranking) {
+		this.ranking = ranking;
 	}
-	public String getScore() {
-		return Score;
+	public int getScore() {
+		return score;
 	}
-	public void setScore(String score) {
-		Score = score;
+	public void setScore(int score) {
+		this.score = score;
 	}
 	
 

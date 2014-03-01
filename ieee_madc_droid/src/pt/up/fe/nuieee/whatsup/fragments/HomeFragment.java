@@ -9,7 +9,7 @@ import com.google.gson.Gson;
 import pt.up.fe.nuieee.whatsup.R;
 import pt.up.fe.nuieee.whatsup.adapter.FeedListAdapter;
 import pt.up.fe.nuieee.whatsup.api.AsyncTaskHandler;
-import pt.up.fe.nuieee.whatsup.api.FetchEventsTask;
+import pt.up.fe.nuieee.whatsup.api.FetchAsyncTask;
 import pt.up.fe.nuieee.whatsup.models.EventModel;
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
@@ -54,7 +54,7 @@ public class HomeFragment extends ListFragment {
 		registerForContextMenu(this.getListView());
 
 
-		FetchEventsTask<List<EventModel>> fetchActivitiesTask = new FetchEventsTask<List<EventModel>>(
+		FetchAsyncTask<List<EventModel>> fetchActivitiesTask = new FetchAsyncTask<List<EventModel>>(
 				new AsyncTaskHandler<List<EventModel>>() {
 					@Override
 					public void onFailure(Exception error) {
@@ -69,7 +69,7 @@ public class HomeFragment extends ListFragment {
 					}
 				}
 				);
-		fetchActivitiesTask.execute();
+		fetchActivitiesTask.execute(EventModel.class);
 
 	}
 

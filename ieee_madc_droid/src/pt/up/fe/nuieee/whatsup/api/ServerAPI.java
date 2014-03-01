@@ -79,7 +79,7 @@ public class ServerAPI {
 	{
 		checkCollections();
 		ArrayList<DBObject> events = new ArrayList<DBObject>(); 
-		DBCursor eventsCursor = dbCollectionEvents.find();
+		DBCursor eventsCursor = dbCollectionEvents.find(); 
 		
 		while (eventsCursor.hasNext()) {
 			events.add(eventsCursor.next());
@@ -89,12 +89,12 @@ public class ServerAPI {
 	
 	public static List<TopItemModel> getTopSBs() throws UnknownHostException {
 		
-		ArrayList<EventModel> events = new ArrayList<EventModel>();
-		for (DBObject element : queryEventsList()) {
+		ArrayList<TopItemModel> events = new ArrayList<TopItemModel>();
+		for (DBObject element : queryTopSBList()) {
 			
 			String elementJson = ((BasicDBObject) element).toString();
 			
-			EventModel eventModel = new Gson().fromJson(elementJson, EventModel.class);
+			TopItemModel eventModel = new Gson().fromJson(elementJson, TopItemModel.class);
 			
 			events.add(eventModel);
 		}
