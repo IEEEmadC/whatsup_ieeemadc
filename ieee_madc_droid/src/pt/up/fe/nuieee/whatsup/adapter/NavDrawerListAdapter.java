@@ -4,7 +4,7 @@ package pt.up.fe.nuieee.whatsup.adapter;
 import java.util.ArrayList;
 
 import pt.up.fe.nuieee.whatsup.R;
-import pt.up.fe.nuieee.whatsup.model.NavDrawerItem;
+import pt.up.fe.nuieee.whatsup.models.NavDrawerItem;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;

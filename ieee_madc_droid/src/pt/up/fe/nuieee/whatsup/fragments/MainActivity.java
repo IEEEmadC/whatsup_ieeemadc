@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import pt.up.fe.nuieee.whatsup.R;
 import pt.up.fe.nuieee.whatsup.adapter.NavDrawerListAdapter;
-import pt.up.fe.nuieee.whatsup.model.NavDrawerItem;
+import pt.up.fe.nuieee.whatsup.models.NavDrawerItem;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -158,7 +158,7 @@ public class MainActivity extends Activity {
 			fragment = new TopStudentBranchesFragment();
 			break;
 		case 2:
-			fragment = new NewActivityFragment();
+			fragment = new NewEventsFragment();
 			break;
 		case 3:
 			fragment = new MyStudentBranchFragment();

@@ -18,7 +18,7 @@
     <string-array name="nav_drawer_loggedin_items">
         <item>Home</item>
         <item>Top SB\'s</item>
-        <item>New activity!</item>
+        <item>New event!</item>
         <item>My SB</item>
     </string-array>
     

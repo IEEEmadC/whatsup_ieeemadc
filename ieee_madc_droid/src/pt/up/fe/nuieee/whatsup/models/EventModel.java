@@ -1,13 +1,14 @@
-package pt.up.fe.nuieee.whatsup.model;
+package pt.up.fe.nuieee.whatsup.models;
 
 import java.util.Date;
 
 public class EventModel {
+	
 	private String title;
 	private String type;
 	private String StudentBranch;
 	private String[] tags;
-	private Date date;
+	private String date;
 	private String description;
 	
 	public String getDescription() {
@@ -41,10 +42,10 @@ public class EventModel {
 	public void setTags(String[] tags) {
 		this.tags = tags;
 	}
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public int getPoints() {

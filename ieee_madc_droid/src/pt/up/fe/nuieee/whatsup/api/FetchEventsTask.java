@@ -4,33 +4,30 @@ import java.net.UnknownHostException;
 
 import android.os.AsyncTask;
 
-public class FetchActivitiesTask<T> extends AsyncTask<Void, Void, Void> {
+public class FetchEventsTask<T> extends AsyncTask<Void, Void, T> {
 
 	private AsyncTaskHandler<T> mHandler;
-	private T mResult;
 	private Exception mError;
 
-	public FetchActivitiesTask(AsyncTaskHandler<T> handler) {
+	public FetchEventsTask(AsyncTaskHandler<T> handler) {
 		this.mHandler = handler;
 	}
 
 	@Override
-	protected void onPostExecute(Void result) {
+	protected void onPostExecute(T result) {
 		
-		if (mError == null)
-		{
-			mHandler.onSuccess(mResult);
+		if (mError == null) {
+			mHandler.onSuccess(result);
 		}
-		else
-		{
+		else {
 			mHandler.onFailure(mError);
 		}
 	}
 
 	@Override
-	protected Void doInBackground(Void... params) {
+	protected T doInBackground(Void... params) {
 		try {
-			mResult = (T) ServerAPI.queryActivitiesList();
+			return (T) ServerAPI.getEvents();
 		} catch (UnknownHostException e) {
 			mError = e;
 		}

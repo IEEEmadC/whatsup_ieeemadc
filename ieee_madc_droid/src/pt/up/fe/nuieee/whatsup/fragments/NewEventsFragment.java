@@ -7,15 +7,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class NewActivityFragment extends Fragment {
+public class NewEventsFragment extends Fragment {
 	
-	public NewActivityFragment(){}
+	public NewEventsFragment() {
+	}
 	
 	@Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
  
-        View rootView = inflater.inflate(R.layout.fragment_new_activity, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_new_event, container, false);
          
         return rootView;
     }

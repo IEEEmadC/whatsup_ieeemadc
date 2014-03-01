@@ -1,7 +1,9 @@
 package pt.up.fe.nuieee.whatsup.adapter;
 
+import java.util.List;
+
 import pt.up.fe.nuieee.whatsup.R;
-import pt.up.fe.nuieee.whatsup.model.EventModel;
+import pt.up.fe.nuieee.whatsup.models.EventModel;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.view.LayoutInflater;
@@ -14,7 +16,7 @@ import android.widget.TextView;
 public class FeedListAdapter  extends ArrayAdapter<EventModel> {
  
 	private final Activity context;
-	private final EventModel[] events;
+	private final List<EventModel> events;
 
 	static class ViewHolder {
 		public TextView title;
@@ -23,7 +25,7 @@ public class FeedListAdapter  extends ArrayAdapter<EventModel> {
 		public ImageView type;
 	}
 
-	public FeedListAdapter(Activity context, EventModel[] srcLogs) {
+	public FeedListAdapter(Activity context, List<EventModel> srcLogs) {
 		super(context, R.layout.feed_item, srcLogs);
 		this.context = context;
 		this.events = srcLogs;
@@ -47,10 +49,10 @@ public class FeedListAdapter  extends ArrayAdapter<EventModel> {
 
 		// fill data
 		ViewHolder holder = (ViewHolder) rowView.getTag();
-		holder.date.setText("" + events[position].getDate());
-		holder.studentBranch.setText(events[position].getStudentBranch());
-		holder.title.setText(events[position].getTitle());
-		if(events[position].getType().equals("workshop")) {
+		holder.date.setText("" + events.get(position).getDate());
+		holder.studentBranch.setText(events.get(position).getStudentBranch());
+		holder.title.setText(events.get(position).getTitle());
+		if(events.get(position).getType().equals("workshop")) {
 			holder.type.setImageResource(R.drawable.ic_communities);
 		} else {
 			holder.type.setImageResource(R.drawable.ic_whats_hot);

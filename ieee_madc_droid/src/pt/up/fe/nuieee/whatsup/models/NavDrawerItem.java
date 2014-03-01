@@ -1,4 +1,4 @@
-package pt.up.fe.nuieee.whatsup.model;
+package pt.up.fe.nuieee.whatsup.models;
 
 public class NavDrawerItem {
 	
