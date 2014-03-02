@@ -3,6 +3,7 @@ package pt.up.fe.nuieee.whatsup.fragments;
 import com.google.gson.Gson;
 
 import pt.up.fe.nuieee.whatsup.R;
+import pt.up.fe.nuieee.whatsup.activities.MainActivity;
 import pt.up.fe.nuieee.whatsup.models.EventModel;
 import android.app.Fragment;
 import android.os.Bundle;

@@ -1,9 +1,13 @@
-package pt.up.fe.nuieee.whatsup.fragments;
+package pt.up.fe.nuieee.whatsup.activities;
 
 import java.util.ArrayList;
 
 import pt.up.fe.nuieee.whatsup.R;
 import pt.up.fe.nuieee.whatsup.adapter.NavDrawerListAdapter;
+import pt.up.fe.nuieee.whatsup.fragments.HomeFragment;
+import pt.up.fe.nuieee.whatsup.fragments.MyStudentBranchFragment;
+import pt.up.fe.nuieee.whatsup.fragments.NewEventsFragment;
+import pt.up.fe.nuieee.whatsup.fragments.TopStudentBranchesFragment;
 import pt.up.fe.nuieee.whatsup.models.NavDrawerItem;
 import android.app.Activity;
 import android.app.Fragment;

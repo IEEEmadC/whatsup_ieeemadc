@@ -49,8 +49,6 @@ public class HomeFragment extends ListFragment {
 		mFeedListAdapter.setNotifyOnChange(true);
 		setListAdapter(mFeedListAdapter);
 
-		//getListView().setOnLongClickListener(l)
-
 		registerForContextMenu(this.getListView());
 
 

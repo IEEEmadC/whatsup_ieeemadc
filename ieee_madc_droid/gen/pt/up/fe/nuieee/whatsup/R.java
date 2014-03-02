@@ -63,41 +63,50 @@ public final class R {
         public static final int workshop=0x7f02000f;
     }
     public static final class id {
-        public static final int action_settings=0x7f0b0013;
-        public static final int action_share=0x7f0b0012;
-        public static final int counter=0x7f0b0005;
-        public static final int drawer_layout=0x7f0b0000;
-        public static final int feed_date=0x7f0b0009;
-        public static final int feed_icon=0x7f0b0006;
-        public static final int feed_studentbranch=0x7f0b0008;
-        public static final int feed_title=0x7f0b0007;
-        public static final int frame_container=0x7f0b0001;
-        public static final int icon=0x7f0b0003;
-        public static final int iv_event_icon=0x7f0b000b;
-        public static final int list_slidermenu=0x7f0b0002;
-        public static final int title=0x7f0b0004;
-        public static final int top_item_icon=0x7f0b000e;
-        public static final int top_item_ranking=0x7f0b0011;
-        public static final int top_item_score=0x7f0b0010;
-        public static final int top_item_title=0x7f0b000f;
-        public static final int tv_details=0x7f0b000c;
-        public static final int tv_title=0x7f0b000a;
-        public static final int txtLabel=0x7f0b000d;
+        public static final int action_settings=0x7f0b0018;
+        public static final int action_share=0x7f0b0017;
+        public static final int activity_bar=0x7f0b0011;
+        public static final int activity_frame=0x7f0b0012;
+        public static final int activity_intro_progressbar=0x7f0b0001;
+        public static final int counter=0x7f0b0007;
+        public static final int drawer_layout=0x7f0b0002;
+        public static final int feed_date=0x7f0b000b;
+        public static final int feed_icon=0x7f0b0008;
+        public static final int feed_studentbranch=0x7f0b000a;
+        public static final int feed_title=0x7f0b0009;
+        public static final int frame_container=0x7f0b0003;
+        public static final int icon=0x7f0b0005;
+        public static final int iv_event_icon=0x7f0b000d;
+        public static final int list_slidermenu=0x7f0b0004;
+        public static final int pager=0x7f0b0000;
+        public static final int section_label=0x7f0b0010;
+        public static final int title=0x7f0b0006;
+        public static final int top_item_icon=0x7f0b0013;
+        public static final int top_item_ranking=0x7f0b0016;
+        public static final int top_item_score=0x7f0b0015;
+        public static final int top_item_title=0x7f0b0014;
+        public static final int tv_details=0x7f0b000e;
+        public static final int tv_title=0x7f0b000c;
+        public static final int txtLabel=0x7f0b000f;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int drawer_list_item=0x7f030001;
-        public static final int feed_item=0x7f030002;
-        public static final int fragment_event_details=0x7f030003;
-        public static final int fragment_home=0x7f030004;
-        public static final int fragment_my_sb=0x7f030005;
-        public static final int fragment_new_event=0x7f030006;
-        public static final int fragment_top_sb=0x7f030007;
-        public static final int top_item=0x7f030008;
+        public static final int activity_intro=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int drawer_list_item=0x7f030002;
+        public static final int feed_item=0x7f030003;
+        public static final int fragment_event_details=0x7f030004;
+        public static final int fragment_home=0x7f030005;
+        public static final int fragment_intro_dummy=0x7f030006;
+        public static final int fragment_my_sb=0x7f030007;
+        public static final int fragment_new_event=0x7f030008;
+        public static final int fragment_top_sb=0x7f030009;
+        public static final int progress=0x7f03000a;
+        public static final int top_item=0x7f03000b;
     }
     public static final class menu {
         public static final int action_context_event=0x7f0a0000;
-        public static final int main=0x7f0a0001;
+        public static final int intro=0x7f0a0001;
+        public static final int main=0x7f0a0002;
     }
     public static final class string {
         public static final int action_settings=0x7f070001;
@@ -109,6 +118,10 @@ public final class R {
         public static final int drawer_close=0x7f070004;
         public static final int drawer_open=0x7f070003;
         public static final int hello_world=0x7f070002;
+        public static final int title_activity_intro=0x7f070007;
+        public static final int title_section1=0x7f070008;
+        public static final int title_section2=0x7f070009;
+        public static final int title_section3=0x7f07000a;
     }
     public static final class style {
         /** 
