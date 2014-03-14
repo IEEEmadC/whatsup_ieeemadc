@@ -2,13 +2,19 @@ package pt.up.fe.nuieee.whatsup.api;
 
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import pt.up.fe.nuieee.whatsup.models.EventModel;
 import pt.up.fe.nuieee.whatsup.models.TopItemModel;
 
 import com.google.gson.Gson;
+import com.mongodb.AggregationOutput;
+import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
+import com.mongodb.BasicDBObjectBuilder;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
@@ -79,10 +85,17 @@ public class ServerAPI {
 	{
 		checkCollections();
 		ArrayList<DBObject> events = new ArrayList<DBObject>(); 
-		DBCursor eventsCursor = dbCollectionEvents.find(); 
+
+		BasicDBList group = new BasicDBList();
+		group.add(new BasicDBObject("_id", "$studentBranch"));
+		group.add(new BasicDBObject("points", new BasicDBObject("$sum", "$points")));
+		DBObject firstOp = new BasicDBObject("$group", group);
 		
-		while (eventsCursor.hasNext()) {
-			events.add(eventsCursor.next());
+		AggregationOutput aggregationOutput = dbCollectionEvents.aggregate(firstOp); 
+		Iterator<DBObject> cursor = aggregationOutput.results().iterator();
+		
+		while (cursor.hasNext()) {
+			events.add(cursor.next());
 		}
 		return events;
 	}
