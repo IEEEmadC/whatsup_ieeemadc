@@ -52,7 +52,9 @@ public class TopStudentBranchesFragment extends ListFragment {
 					public void onSuccess(List<TopItemModel> result) {
 
 						mTopItems.clear();
+						mTopItems.addAll(result);
 						
+						/*
 						TopItemModel topItem = new TopItemModel();
 						topItem.setRanking(1);
 						topItem.setStudentBranchName("NuIEEE");
@@ -72,7 +74,7 @@ public class TopStudentBranchesFragment extends ListFragment {
 						topItem3.setScore(253);
 						r2.add(topItem3);
 						
-						mTopItems.addAll(r2);
+						*/
 						mAdapter.notifyDataSetChanged();
 						Toast.makeText(getActivity(), "added sample" + mTopItems.size(), Toast.LENGTH_LONG).show();
 					}

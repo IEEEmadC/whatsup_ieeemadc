@@ -4,7 +4,7 @@ public class TopItemModel {
 	
 	private String studentBranchName;
 	private int ranking;
-	private int score;
+	private int points;
 	
 	public String getStudenBranchName() {
 		return studentBranchName;
@@ -18,11 +18,11 @@ public class TopItemModel {
 	public void setRanking(int ranking) {
 		this.ranking = ranking;
 	}
-	public int getScore() {
-		return score;
+	public int getPoints() {
+		return points;
 	}
-	public void setScore(int score) {
-		this.score = score;
+	public void setPoints(int score) {
+		this.points = score;
 	}
 	
 

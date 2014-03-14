@@ -86,12 +86,17 @@ public class ServerAPI {
 		checkCollections();
 		ArrayList<DBObject> events = new ArrayList<DBObject>(); 
 
-		BasicDBList group = new BasicDBList();
-		group.add(new BasicDBObject("_id", "$studentBranch"));
-		group.add(new BasicDBObject("points", new BasicDBObject("$sum", "$points")));
-		DBObject firstOp = new BasicDBObject("$group", group);
+		BasicDBObject group = new BasicDBObject("_id", "$studentBranch");
+		group.put("points", new BasicDBObject("$sum", "$points"));
+		DBObject groupObject = new BasicDBObject("$group", group);
 		
-		AggregationOutput aggregationOutput = dbCollectionEvents.aggregate(firstOp, group); 
+		BasicDBObject sort = new BasicDBObject();
+		sort.put("points", -1);
+		
+		DBObject sortObject = new BasicDBObject("$sort", sort);
+		
+		AggregationOutput aggregationOutput = dbCollectionEvents.aggregate(groupObject, sortObject);
+		
 		Iterator<DBObject> cursor = aggregationOutput.results().iterator();
 		
 		while (cursor.hasNext()) {
@@ -105,7 +110,7 @@ public class ServerAPI {
 		ArrayList<TopItemModel> events = new ArrayList<TopItemModel>();
 		for (DBObject element : queryTopSBList()) {
 			
-			String elementJson = ((BasicDBObject) element).toString();
+			String elementJson = ((BasicDBObject) element).toString().replaceFirst("_id", "studentBranchName");
 			
 			TopItemModel eventModel = new Gson().fromJson(elementJson, TopItemModel.class);
 			
