@@ -3,18 +3,24 @@ package pt.up.fe.nuieee.whatsup.activities;
 import java.util.Locale;
 
 import pt.up.fe.nuieee.whatsup.R;
-import android.content.Intent;
+import pt.up.fe.nuieee.whatsup.api.AsyncTaskHandler;
+import pt.up.fe.nuieee.whatsup.api.FetchAsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class IntroActivity extends ProgressActivity implements OnPageChangeListener {
 
@@ -68,13 +74,15 @@ public class IntroActivity extends ProgressActivity implements OnPageChangeListe
 
 		@Override
 		public Fragment getItem(int position) {
+			Fragment fragment;
 			// getItem is called to instantiate the fragment for the given page.
 			// Return a DummySectionFragment (defined as a static inner class
 			// below) with the page number as its lone argument.
-			Fragment fragment = new DummySectionFragment();
-			Bundle args = new Bundle();
-			args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
-			fragment.setArguments(args);
+				fragment = new DummySectionFragment();
+				Bundle args = new Bundle();
+				args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
+				fragment.setArguments(args);
+			
 			return fragment;
 		}
 
@@ -146,9 +154,7 @@ public class IntroActivity extends ProgressActivity implements OnPageChangeListe
 		if (position == 3)
 		{
 			// the last position launches the main activity.
-			Intent intent = new Intent(this, MainActivity.class);
-			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-			startActivity(intent);
+			
 		}
 	}
 
