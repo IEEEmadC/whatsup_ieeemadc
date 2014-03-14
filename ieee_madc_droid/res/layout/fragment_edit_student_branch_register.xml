@@ -1,0 +1,109 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dddddd"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="2"
+            android:rowCount="6"
+            android:layout_margin="@dimen/default_layout_margin"
+            android:padding="@dimen/default_padding"
+            android:background="@android:color/white"
+            tools:context="pt.up.fe.nuieee.whatsup.ui.EditStudentBranchRegisterFragment">
+				
+				<TextView
+				android:id="@+id/tv_header"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_columnSpan="2"
+                android:layout_row="0"
+				android:layout_marginTop="36dp"
+				android:layout_marginBottom="36dp"
+				android:gravity="center"
+				android:padding="10dp"
+				android:text="Welcome IEEEer! Provide us with the required information about your Student Branch."
+				android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                android:layout_column="0"
+                android:layout_row="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/SecondaryText"
+                android:text="Student Branch Name"/>
+            <EditText
+                android:id="@+id/create_student_branch_register_student_branch_name"
+                android:layout_column="1"
+                android:layout_row="1"
+                android:layout_gravity="fill"
+                android:text=""/>
+            <TextView
+                android:layout_column="0"
+                android:layout_row="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/SecondaryText"
+                android:text="Location"/>
+            <EditText
+                android:id="@+id/create_student_branch_register_location"
+                android:layout_column="1"
+                android:layout_row="2"
+                android:layout_gravity="fill_horizontal"
+                android:text=""/>
+            <TextView
+                android:layout_column="0"
+                android:layout_row="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/SecondaryText"
+                android:text="Webpage"/>
+            <EditText
+                android:id="@+id/create_student_branch_register_webpage"
+                android:layout_column="1"
+                android:layout_row="3"
+                android:layout_gravity="fill_horizontal"
+                android:text=""/>
+            <TextView
+                android:layout_column="0"
+                android:layout_row="4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/SecondaryText"
+                android:text="Email"/>
+            <EditText
+                android:id="@+id/create_student_branch_register_email"
+                android:layout_column="1"
+                android:layout_row="4"
+                android:layout_gravity="fill_horizontal"
+                android:text=""/>
+            <TextView
+                android:layout_column="0"
+                android:layout_row="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/SecondaryText"
+                android:text="Password"/>
+            <EditText
+                android:id="@+id/create_student_branch_register_password"
+                android:layout_column="1"
+                android:layout_row="5"
+                android:layout_gravity="fill_horizontal"
+                android:text=""/>
+
+        </GridLayout>
+
+        <AbsoluteLayout
+            style="@style/CardBottomBar"
+            />
+    </LinearLayout>
+</ScrollView>
