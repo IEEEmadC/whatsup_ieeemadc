@@ -11,11 +11,13 @@ public class FetchAsyncTask<T> extends AsyncTask<Class, Void, T> {
 
 	private AsyncTaskHandler<T> mHandler;
 	private Exception mError;
+	private Object[] data;
 
-	public FetchAsyncTask(AsyncTaskHandler<T> handler) {
+	public FetchAsyncTask(AsyncTaskHandler<T> handler, Object... data) {
 		this.mHandler = handler;
+		this.data = data;
 	}
-
+	
 	@Override
 	protected void onPostExecute(T result) {
 		
@@ -37,6 +39,10 @@ public class FetchAsyncTask<T> extends AsyncTask<Class, Void, T> {
 			else if (params[0] == TopItemModel.class)
 			{
 				return (T) ServerAPI.getTopSBs();
+			}
+			else if(params[0] == Boolean.class) {
+				
+				return (T) ServerAPI.authenticateStudentBranch((String) data[0], (String) data[1]);
 			}
 		} catch (UnknownHostException e) {
 			mError = e;
