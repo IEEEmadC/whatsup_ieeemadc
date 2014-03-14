@@ -44,14 +44,15 @@ public class ServerAPI {
 		}
 	}
 	
-	public static boolean authenticateStudentBranch(String username, String password) throws UnknownHostException 
+	public static Boolean authenticateStudentBranch(String username, String password) throws UnknownHostException 
 	{
 		checkCollections();
 		BasicDBObject authenticationObject = new BasicDBObject();
 		authenticationObject.put("username", username);
 		authenticationObject.put("password", password);
 		
-		return dbCollectionUsers.findOne(authenticationObject) == null;
+		DBObject resultObject = dbCollectionUsers.findOne(authenticationObject); 
+		return resultObject != null;
 	}
 	
 	private static List<DBObject> queryEventsList() throws UnknownHostException 
@@ -86,17 +87,17 @@ public class ServerAPI {
 		checkCollections();
 		ArrayList<DBObject> events = new ArrayList<DBObject>(); 
 
-		BasicDBList group = new BasicDBList();
-		group.add(new BasicDBObject("_id", "$studentBranch"));
-		group.add(new BasicDBObject("points", new BasicDBObject("$sum", "$points")));
-		DBObject firstOp = new BasicDBObject("$group", group);
-		
-		AggregationOutput aggregationOutput = dbCollectionEvents.aggregate(firstOp, group); 
-		Iterator<DBObject> cursor = aggregationOutput.results().iterator();
-		
-		while (cursor.hasNext()) {
-			events.add(cursor.next());
-		}
+//		BasicDBList group = new BasicDBList();
+//		group.add(new BasicDBObject("_id", "$studentBranch"));
+//		group.add(new BasicDBObject("points", new BasicDBObject("$sum", "$points")));
+//		DBObject firstOp = new BasicDBObject("$group", group);
+//		
+//		AggregationOutput aggregationOutput = dbCollectionEvents.aggregate(firstOp, group); 
+//		Iterator<DBObject> cursor = aggregationOutput.results().iterator();
+//		
+//		while (cursor.hasNext()) {
+//			events.add(cursor.next());
+//		}
 		return events;
 	}
 	
