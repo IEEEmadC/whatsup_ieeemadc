@@ -91,7 +91,7 @@ public class ServerAPI {
 		group.add(new BasicDBObject("points", new BasicDBObject("$sum", "$points")));
 		DBObject firstOp = new BasicDBObject("$group", group);
 		
-		AggregationOutput aggregationOutput = dbCollectionEvents.aggregate(firstOp); 
+		AggregationOutput aggregationOutput = dbCollectionEvents.aggregate(firstOp, group); 
 		Iterator<DBObject> cursor = aggregationOutput.results().iterator();
 		
 		while (cursor.hasNext()) {
