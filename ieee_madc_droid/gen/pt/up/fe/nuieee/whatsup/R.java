@@ -43,6 +43,8 @@ public final class R {
          */
         public static final int activity_horizontal_margin=0x7f060000;
         public static final int activity_vertical_margin=0x7f060001;
+        public static final int default_layout_margin=0x7f060002;
+        public static final int default_padding=0x7f060003;
     }
     public static final class drawable {
         public static final int counter_bg=0x7f020000;
@@ -63,12 +65,17 @@ public final class R {
         public static final int workshop=0x7f02000f;
     }
     public static final class id {
-        public static final int action_settings=0x7f0b0018;
-        public static final int action_share=0x7f0b0017;
-        public static final int activity_bar=0x7f0b0011;
-        public static final int activity_frame=0x7f0b0012;
+        public static final int action_settings=0x7f0b001e;
+        public static final int action_share=0x7f0b001d;
+        public static final int activity_bar=0x7f0b0017;
+        public static final int activity_frame=0x7f0b0018;
         public static final int activity_intro_progressbar=0x7f0b0001;
         public static final int counter=0x7f0b0007;
+        public static final int create_student_branch_register_email=0x7f0b0010;
+        public static final int create_student_branch_register_location=0x7f0b000e;
+        public static final int create_student_branch_register_password=0x7f0b0011;
+        public static final int create_student_branch_register_student_branch_name=0x7f0b000d;
+        public static final int create_student_branch_register_webpage=0x7f0b000f;
         public static final int drawer_layout=0x7f0b0002;
         public static final int feed_date=0x7f0b000b;
         public static final int feed_icon=0x7f0b0008;
@@ -76,32 +83,34 @@ public final class R {
         public static final int feed_title=0x7f0b0009;
         public static final int frame_container=0x7f0b0003;
         public static final int icon=0x7f0b0005;
-        public static final int iv_event_icon=0x7f0b000d;
+        public static final int iv_event_icon=0x7f0b0013;
         public static final int list_slidermenu=0x7f0b0004;
         public static final int pager=0x7f0b0000;
-        public static final int section_label=0x7f0b0010;
+        public static final int section_label=0x7f0b0016;
         public static final int title=0x7f0b0006;
-        public static final int top_item_icon=0x7f0b0013;
-        public static final int top_item_ranking=0x7f0b0016;
-        public static final int top_item_score=0x7f0b0015;
-        public static final int top_item_title=0x7f0b0014;
-        public static final int tv_details=0x7f0b000e;
-        public static final int tv_title=0x7f0b000c;
-        public static final int txtLabel=0x7f0b000f;
+        public static final int top_item_icon=0x7f0b0019;
+        public static final int top_item_ranking=0x7f0b001c;
+        public static final int top_item_score=0x7f0b001b;
+        public static final int top_item_title=0x7f0b001a;
+        public static final int tv_details=0x7f0b0014;
+        public static final int tv_header=0x7f0b000c;
+        public static final int tv_title=0x7f0b0012;
+        public static final int txtLabel=0x7f0b0015;
     }
     public static final class layout {
         public static final int activity_intro=0x7f030000;
         public static final int activity_main=0x7f030001;
         public static final int drawer_list_item=0x7f030002;
         public static final int feed_item=0x7f030003;
-        public static final int fragment_event_details=0x7f030004;
-        public static final int fragment_home=0x7f030005;
-        public static final int fragment_intro_dummy=0x7f030006;
-        public static final int fragment_my_sb=0x7f030007;
-        public static final int fragment_new_event=0x7f030008;
-        public static final int fragment_top_sb=0x7f030009;
-        public static final int progress=0x7f03000a;
-        public static final int top_item=0x7f03000b;
+        public static final int fragment_edit_student_branch_register=0x7f030004;
+        public static final int fragment_event_details=0x7f030005;
+        public static final int fragment_home=0x7f030006;
+        public static final int fragment_intro_dummy=0x7f030007;
+        public static final int fragment_my_sb=0x7f030008;
+        public static final int fragment_new_event=0x7f030009;
+        public static final int fragment_top_sb=0x7f03000a;
+        public static final int progress=0x7f03000b;
+        public static final int top_item=0x7f03000c;
     }
     public static final class menu {
         public static final int action_context_event=0x7f0a0000;
@@ -150,5 +159,10 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f090001;
+        public static final int CardBottomBar=0x7f090003;
+        public static final int EditCustomActionButton=0x7f090004;
+        public static final int EditCustomActionButtonImage=0x7f090005;
+        public static final int EditCustomActionButtonText=0x7f090006;
+        public static final int SecondaryText=0x7f090002;
     }
 }
