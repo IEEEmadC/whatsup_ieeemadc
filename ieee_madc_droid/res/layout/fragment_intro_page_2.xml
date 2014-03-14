@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#ddd"
+                android:paddingTop="12dp"
+                android:orientation="vertical"
+                android:paddingBottom="18dp"
+                android:paddingRight="12dp"
+                android:paddingLeft="12dp">
+
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="fill_parent"
+                    android:layout_height="60dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:background="#fff">
+
+        <ImageView
+                android:id="@+id/icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="6dip"
+                android:src="@drawable/present" />
+
+        <TextView
+                android:id="@+id/secondLine"
+                android:textColor="@android:color/secondary_text_dark"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@id/icon"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="All activities in one place."
+                android:textSize="12sp" />
+
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignWithParentIfMissing="true"
+                android:layout_toRightOf="@id/icon"
+                android:gravity="center_vertical"
+                android:text="Check for future IEEE events!"
+                android:textSize="16sp"
+                android:layout_above="@+id/secondLine"/>
+
+    </RelativeLayout>
+    <Space
+            android:layout_width="fill_parent"
+            android:layout_height="12dp"></Space>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="wrap_content"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:background="#fff"
+                    android:layout_height="60dp"
+            >
+
+        <ImageView
+                android:id="@+id/icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="6dip"
+                android:src="@drawable/ic_communities" />
+
+        <TextView
+                android:id="@+id/secondLine"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@id/icon"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:textColor="@android:color/secondary_text_dark"
+                android:text="Follow the most active branches!"
+                android:textSize="12sp" />
+
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignWithParentIfMissing="true"
+                android:layout_toRightOf="@id/icon"
+                android:gravity="center_vertical"
+                android:text="Student Branches Leaderboard"
+                android:textSize="16sp"
+                android:layout_above="@+id/secondLine"/>
+
+    </RelativeLayout>
+    <Space
+            android:layout_width="fill_parent"
+            android:layout_height="12dp"></Space>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="wrap_content"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:background="#fff"
+                    android:layout_height="60dp"
+            >
+
+        <ImageView
+                android:id="@+id/icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="6dip"
+                android:src="@drawable/talk" />
+
+        <TextView
+                android:id="@+id/secondLine"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@id/icon"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:textColor="@android:color/secondary_text_dark"
+                android:text="Get others to know your branch activities."
+                android:textSize="12sp" />
+
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignWithParentIfMissing="true"
+                android:layout_toRightOf="@id/icon"
+                android:gravity="center_vertical"
+                android:text="Share events in social networks!"
+                android:textSize="16sp"
+                android:layout_above="@+id/secondLine"/>
+
+    </RelativeLayout>
+    <Space
+            android:layout_width="fill_parent"
+            android:layout_height="12dp"></Space>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="wrap_content"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:background="#fff"
+                    android:layout_height="60dp"
+            >
+
+        <ImageView
+                android:id="@+id/icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="6dip"
+                android:src="@drawable/ic_new" />
+
+        <TextView
+                android:id="@+id/secondLine"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@id/icon"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:textColor="@android:color/secondary_text_dark"
+                android:text="Get your place in the leaderboard."
+                android:textSize="12sp" />
+
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignWithParentIfMissing="true"
+                android:layout_toRightOf="@id/icon"
+                android:gravity="center_vertical"
+                android:text="Submit your student branch activities!"
+                android:textSize="16sp"
+                android:layout_above="@+id/secondLine"/>
+
+    </RelativeLayout>
+</LinearLayout>
+
