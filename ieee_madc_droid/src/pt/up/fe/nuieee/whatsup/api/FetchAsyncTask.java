@@ -12,7 +12,7 @@ public class FetchAsyncTask<T> extends AsyncTask<Class, Void, T> {
 	private AsyncTaskHandler<T> mHandler;
 	private Exception mError;
 
-	public FetchAsyncTask(AsyncTaskHandler<T> handler) {
+	public FetchAsyncTask(AsyncTaskHandler<T> handler, Object... data) {
 		this.mHandler = handler;
 	}
 

@@ -53,30 +53,7 @@ public class TopStudentBranchesFragment extends ListFragment {
 
 						mTopItems.clear();
 						mTopItems.addAll(result);
-						
-						/*
-						TopItemModel topItem = new TopItemModel();
-						topItem.setRanking(1);
-						topItem.setStudentBranchName("NuIEEE");
-						topItem.setScore(1000);
-						List<TopItemModel> r2 = new ArrayList<TopItemModel>();
-						r2.add(topItem);
-						
-						TopItemModel topItem2 = new TopItemModel();
-						topItem2.setRanking(2);
-						topItem2.setStudentBranchName("ISCTE");
-						topItem2.setScore(753);
-						r2.add(topItem2);
-						
-						TopItemModel topItem3 = new TopItemModel();
-						topItem3.setRanking(3);
-						topItem3.setStudentBranchName("Aveiro");
-						topItem3.setScore(253);
-						r2.add(topItem3);
-						
-						*/
 						mAdapter.notifyDataSetChanged();
-						Toast.makeText(getActivity(), "added sample" + mTopItems.size(), Toast.LENGTH_LONG).show();
 					}
 				}
 				);
