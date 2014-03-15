@@ -16,42 +16,32 @@
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:background="@android:color/white"
-            android:rowCount="3"
-            android:columnCount="2"
-            android:orientation="vertical" >
+            android:padding="16dp"
+            android:columnCount="1"
+            android:orientation="vertical"
+            android:rowCount="4" >
 
             <ImageView
-                android:layout_row="0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_column="0"
-                android:layout_columnSpan="2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="fill_horizontal"
-                android:adjustViewBounds="true"
-                android:fitsSystemWindows="false"
-                android:focusableInTouchMode="false"
-                android:src="@drawable/counter_bg" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
                 android:layout_gravity="fill_vertical"
-                android:layout_row="2"
+                android:layout_row="3"
                 android:gravity="center_vertical|center_horizontal"
                 android:scaleType="centerCrop"
+                android:scaleX="0.7"
+                android:scaleY="0.7"
                 android:src="@drawable/cup" />
 
-            <ImageView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="1"
+                android:layout_column="0"
                 android:layout_gravity="center_horizontal|top"
-                android:layout_row="1"
-                android:gravity="center_vertical|center_horizontal"
-                android:scaleType="centerCrop"
-                android:src="@drawable/cup" />
-            
+                android:layout_row="2"
+                android:gravity="center_horizontal"
+                android:textSize="40sp"
+                android:text="Welcome!" />
         </GridLayout>
 
 </LinearLayout>
