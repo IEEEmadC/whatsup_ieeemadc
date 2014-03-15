@@ -7,6 +7,7 @@ import pt.up.fe.nuieee.whatsup.R;
 import pt.up.fe.nuieee.whatsup.adapter.TopSBListAdapter;
 import pt.up.fe.nuieee.whatsup.api.AsyncTaskHandler;
 import pt.up.fe.nuieee.whatsup.api.FetchAsyncTask;
+import pt.up.fe.nuieee.whatsup.api.ServerAPI;
 import pt.up.fe.nuieee.whatsup.models.TopItemModel;
 import android.app.ListFragment;
 import android.os.Bundle;
@@ -57,7 +58,7 @@ public class TopStudentBranchesFragment extends ListFragment {
 					}
 				}
 				);
-		fetchActivitiesTask.execute(TopItemModel.class);
+		fetchActivitiesTask.execute(ServerAPI.Actions.getTopSBs);
 	}
 
 

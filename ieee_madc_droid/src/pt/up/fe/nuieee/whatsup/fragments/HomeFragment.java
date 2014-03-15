@@ -10,6 +10,7 @@ import pt.up.fe.nuieee.whatsup.R;
 import pt.up.fe.nuieee.whatsup.adapter.FeedListAdapter;
 import pt.up.fe.nuieee.whatsup.api.AsyncTaskHandler;
 import pt.up.fe.nuieee.whatsup.api.FetchAsyncTask;
+import pt.up.fe.nuieee.whatsup.api.ServerAPI;
 import pt.up.fe.nuieee.whatsup.models.EventModel;
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
@@ -67,7 +68,7 @@ public class HomeFragment extends ListFragment {
 					}
 				}
 				);
-		fetchActivitiesTask.execute(EventModel.class);
+		fetchActivitiesTask.execute(ServerAPI.Actions.getEvents);
 
 	}
 

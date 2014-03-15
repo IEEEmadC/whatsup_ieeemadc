@@ -3,6 +3,7 @@ package pt.up.fe.nuieee.whatsup.fragments;
 import pt.up.fe.nuieee.whatsup.R;
 import pt.up.fe.nuieee.whatsup.api.AsyncTaskHandler;
 import pt.up.fe.nuieee.whatsup.api.FetchAsyncTask;
+import pt.up.fe.nuieee.whatsup.api.ServerAPI;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -62,7 +63,7 @@ public class LoginFragment extends Fragment {
 							Log.e("Login",error.getMessage());
 							
 						}
-					}, username, password).execute(Boolean.class);
+					}, username, password).execute(ServerAPI.Actions.authenticateStudentBranch);
 				}
 			});
         return rootView;
