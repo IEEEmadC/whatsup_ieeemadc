@@ -38,14 +38,17 @@ public class LoginOrRegisterStudentBranchFragment extends Fragment {
 
 			@Override
 			public void onSuccess(Boolean result) {
-				// TODO Auto-generated method stub
-				
+				if (result) {
+					Toast.makeText(getActivity(), "Successfully created!" + result, Toast.LENGTH_LONG).show();
+					((LoginOrRegisterSucessHandler) getActivity()).onLoginOrRegisterSucess();
+				} else {
+					Toast.makeText(getActivity(), "FOI CO CARALHO", Toast.LENGTH_LONG).show();
+				}
 			}
 
 			@Override
 			public void onFailure(Exception error) {
-				// TODO Auto-generated method stub
-				
+				Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_SHORT).show();
 			}
 			
 		};
@@ -127,8 +130,10 @@ public class LoginOrRegisterStudentBranchFragment extends Fragment {
 
 						@Override
 						public void onSuccess(Boolean result) {
-							if(result) {
+							if (result) {
 								Toast.makeText(getActivity(), "Success", Toast.LENGTH_LONG).show();
+								
+								((LoginOrRegisterSucessHandler) getActivity()).onLoginOrRegisterSucess();
 							} else {
 								Toast.makeText(getActivity(), "Wrong username or password", Toast.LENGTH_LONG).show();
 							}
@@ -145,6 +150,11 @@ public class LoginOrRegisterStudentBranchFragment extends Fragment {
 			});
 			return rootView;
 		}
+	}
+	
+	
+	public static interface LoginOrRegisterSucessHandler {
+		public void onLoginOrRegisterSucess();
 	}
 
 }

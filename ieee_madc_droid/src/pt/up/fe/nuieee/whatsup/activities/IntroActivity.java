@@ -7,6 +7,7 @@ import pt.up.fe.nuieee.whatsup.fragments.IntroPage1Fragment;
 import pt.up.fe.nuieee.whatsup.fragments.IntroPage2Fragment;
 import pt.up.fe.nuieee.whatsup.fragments.LoginFragment;
 import pt.up.fe.nuieee.whatsup.fragments.LoginOrRegisterStudentBranchFragment;
+import pt.up.fe.nuieee.whatsup.fragments.LoginOrRegisterStudentBranchFragment.LoginOrRegisterSucessHandler;
 import pt.up.fe.nuieee.whatsup.fragments.NewBranchFragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,7 +23,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class IntroActivity extends ProgressActivity implements OnPageChangeListener {
+public class IntroActivity
+	extends ProgressActivity
+	implements OnPageChangeListener, LoginOrRegisterSucessHandler {
 
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -42,6 +45,8 @@ public class IntroActivity extends ProgressActivity implements OnPageChangeListe
 	 */
 	ViewPager mViewPager;
 
+	private boolean mIsLastPage = false;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -60,6 +65,11 @@ public class IntroActivity extends ProgressActivity implements OnPageChangeListe
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
+		if (mIsLastPage == false)
+		{
+			return false;
+		}
+		
 		if (mIsRegistering) {
 			getMenuInflater().inflate(R.menu.login, menu);
 		} else {
@@ -190,6 +200,7 @@ public class IntroActivity extends ProgressActivity implements OnPageChangeListe
 		setProgress((int) (position * 100f / 2f), true);
 		
 		invalidateOptionsMenu();
+		mIsLastPage = 2 == position;
 
 		if (position == 3)
 		{
@@ -198,6 +209,13 @@ public class IntroActivity extends ProgressActivity implements OnPageChangeListe
 			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 			startActivity(intent);
 		}
+	}
+
+	@Override
+	public void onLoginOrRegisterSucess() {
+		Intent intent = new Intent(this, MainActivity.class);
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+		startActivity(intent);
 	}
 
 }

@@ -50,7 +50,7 @@ public class ServerAPI {
 	{
 		checkCollections();
 		BasicDBObject authenticationObject = new BasicDBObject();
-		authenticationObject.put("username", username);
+		authenticationObject.put("name", username);
 		authenticationObject.put("password", password);
 
 		DBObject resultObject = dbCollectionUsers.findOne(authenticationObject); 
