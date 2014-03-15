@@ -39,16 +39,17 @@ public class LoginOrRegisterStudentBranchFragment extends Fragment {
 			@Override
 			public void onSuccess(Boolean result) {
 				if (result) {
-					Toast.makeText(getActivity(), "Successfully created!" + result, Toast.LENGTH_LONG).show();
+					Toast.makeText(getActivity(), "Student Branch successfully created!", Toast.LENGTH_LONG).show();
 					((LoginOrRegisterSucessHandler) getActivity()).onLoginOrRegisterSucess();
 				} else {
-					Toast.makeText(getActivity(), "FOI CO CARALHO", Toast.LENGTH_LONG).show();
+					Toast.makeText(getActivity(), "This Student Branch is already registered.", Toast.LENGTH_LONG).show();
 				}
 			}
 
 			@Override
 			public void onFailure(Exception error) {
-				Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_SHORT).show();
+				Toast.makeText(getActivity(), "Something went wrong. Please try again and make sure you have internet connectivity.", Toast.LENGTH_SHORT).show();
+				Log.e("Login", error.getMessage());
 			}
 			
 		};

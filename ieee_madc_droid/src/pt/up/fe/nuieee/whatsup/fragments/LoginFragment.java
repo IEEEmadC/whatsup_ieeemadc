@@ -4,6 +4,7 @@ import pt.up.fe.nuieee.whatsup.R;
 import pt.up.fe.nuieee.whatsup.api.AsyncTaskHandler;
 import pt.up.fe.nuieee.whatsup.api.FetchAsyncTask;
 import pt.up.fe.nuieee.whatsup.api.ServerAPI;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -53,6 +54,11 @@ public class LoginFragment extends Fragment {
 						public void onSuccess(Boolean result) {
 							if(result) {
 								Toast.makeText(getActivity(), "Success", Toast.LENGTH_LONG).show();
+								SharedPreferences mPreferences = getActivity().getSharedPreferences(getResources().getString(R.string.app_name), 0);
+								SharedPreferences.Editor editor = mPreferences.edit();
+								editor.putString("username",et_username.getText().toString());
+								editor.putString("password", et_password.getText().toString());
+								editor.commit();
 							} else {
 								Toast.makeText(getActivity(), "Wrong username or password", Toast.LENGTH_LONG).show();
 							}
