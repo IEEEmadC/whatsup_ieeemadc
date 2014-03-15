@@ -141,8 +141,6 @@ public class MainActivity extends Activity {
 		}
 		// Handle action bar actions click
 		switch (item.getItemId()) {
-		case R.id.action_settings:
-			return true;
 		case android.R.id.home:
 			onBackPressed();
 			return true;
