@@ -7,6 +7,7 @@ import pt.up.fe.nuieee.whatsup.R;
 import pt.up.fe.nuieee.whatsup.api.AsyncTaskHandler;
 import pt.up.fe.nuieee.whatsup.api.FetchAsyncTask;
 import pt.up.fe.nuieee.whatsup.api.ServerAPI;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -40,6 +41,7 @@ public class LoginOrRegisterStudentBranchFragment extends Fragment {
 			public void onSuccess(Boolean result) {
 				if (result) {
 					Toast.makeText(getActivity(), "Student Branch successfully created!", Toast.LENGTH_LONG).show();
+					savePrefs();
 					((LoginOrRegisterSucessHandler) getActivity()).onLoginOrRegisterSucess();
 				} else {
 					Toast.makeText(getActivity(), "This Student Branch is already registered.", Toast.LENGTH_LONG).show();
@@ -132,8 +134,8 @@ public class LoginOrRegisterStudentBranchFragment extends Fragment {
 						@Override
 						public void onSuccess(Boolean result) {
 							if (result) {
-								Toast.makeText(getActivity(), "Success", Toast.LENGTH_LONG).show();
-								
+								Toast.makeText(getActivity(), "Successful login", Toast.LENGTH_LONG).show();
+								savePrefs();
 								((LoginOrRegisterSucessHandler) getActivity()).onLoginOrRegisterSucess();
 							} else {
 								Toast.makeText(getActivity(), "Wrong username or password", Toast.LENGTH_LONG).show();
@@ -153,6 +155,13 @@ public class LoginOrRegisterStudentBranchFragment extends Fragment {
 		}
 	}
 	
+	private void savePrefs() {
+		SharedPreferences mPreferences = getActivity().getSharedPreferences(getResources().getString(R.string.app_name), 0);
+		SharedPreferences.Editor editor = mPreferences.edit();
+		editor.putString("studentBranch",mName.getText().toString());
+		editor.putString("password", mPassword.getText().toString());
+		editor.commit();
+	}
 	
 	public static interface LoginOrRegisterSucessHandler {
 		public void onLoginOrRegisterSucess();

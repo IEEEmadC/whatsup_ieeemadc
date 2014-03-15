@@ -1,11 +1,5 @@
 package pt.up.fe.nuieee.whatsup.api;
 
-import java.net.UnknownHostException;
-
-import pt.up.fe.nuieee.whatsup.api.ServerAPI.Actions;
-import pt.up.fe.nuieee.whatsup.models.EventModel;
-import pt.up.fe.nuieee.whatsup.models.TopItemModel;
-
 import android.os.AsyncTask;
 
 public class FetchAsyncTask<T> extends AsyncTask<ServerAPI.Actions, Void, T> {
@@ -43,6 +37,8 @@ public class FetchAsyncTask<T> extends AsyncTask<ServerAPI.Actions, Void, T> {
 				return (T) ServerAPI.getTopSBs();
 			case newStudentBranch:
 				return (T) ServerAPI.createSB(data[0], data[1], data[2], data[3]);
+			case newEvent:
+				return (T) ServerAPI.newEvent(data[0], data[1], data[2], data[3], data[4], data[5]);
 			default:
 			
 			}

@@ -74,7 +74,7 @@ public class NewBranchFragment extends Fragment implements AsyncTaskHandler<Bool
 		if(result) {
 			Toast.makeText(getActivity(), "Successfully created!" + result, Toast.LENGTH_LONG).show();
 		} else {
-			Toast.makeText(getActivity(), "FOI CO CARALHO", Toast.LENGTH_LONG).show();
+			Toast.makeText(getActivity(), "Failed. Please check your data and try again...", Toast.LENGTH_LONG).show();
 		}
 	}
 

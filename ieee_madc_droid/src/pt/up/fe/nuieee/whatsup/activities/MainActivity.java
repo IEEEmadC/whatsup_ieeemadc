@@ -76,8 +76,7 @@ public class MainActivity extends Activity {
 		mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
 
 		// setting the nav drawer list adapter
-		adapter = new NavDrawerListAdapter(getApplicationContext(),
-				navDrawerItems);
+		adapter = new NavDrawerListAdapter(getApplicationContext(), navDrawerItems);
 		mDrawerList.setAdapter(adapter);
 
 		// enabling action bar app icon and behaving it as toggle button
@@ -163,7 +162,7 @@ public class MainActivity extends Activity {
 	/**
 	 * Diplaying fragment view for selected nav drawer list item
 	 * */
-	private void displayView(int position) {
+	public void displayView(int position) {
 		// update the main content by replacing fragments
 		Fragment fragment = null;
 		switch (position) {
@@ -175,6 +174,9 @@ public class MainActivity extends Activity {
 			break;
 		case 2:
 			fragment = new NewEventsFragment();
+			Bundle args = new Bundle();
+			args.putBoolean(NewEventsFragment.BUNDLE_CREATE_NEW, true);
+			fragment.setArguments(args);
 			break;
 		case 3:
 			fragment = new MyStudentBranchFragment();

@@ -11,14 +11,9 @@ import pt.up.fe.nuieee.whatsup.api.ServerAPI;
 import pt.up.fe.nuieee.whatsup.models.TopItemModel;
 import android.app.ListFragment;
 import android.os.Bundle;
-import android.view.ActionMode;
-import android.view.ActionMode.Callback;
 import android.view.ContextMenu;
-import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.Toast;
 
 public class TopStudentBranchesFragment extends ListFragment {

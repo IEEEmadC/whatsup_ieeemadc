@@ -9,6 +9,7 @@ import pt.up.fe.nuieee.whatsup.fragments.LoginFragment;
 import pt.up.fe.nuieee.whatsup.fragments.LoginOrRegisterStudentBranchFragment;
 import pt.up.fe.nuieee.whatsup.fragments.LoginOrRegisterStudentBranchFragment.LoginOrRegisterSucessHandler;
 import pt.up.fe.nuieee.whatsup.fragments.NewBranchFragment;
+import pt.up.fe.nuieee.whatsup.settings.Settings;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -61,6 +62,11 @@ public class IntroActivity
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
 		mViewPager.setOnPageChangeListener(this);
+		
+		if (Settings.isFirstTime(this) == false)
+		{
+			skipToMainActivity();
+		}
 	}
 
 	@Override
@@ -205,17 +211,21 @@ public class IntroActivity
 		if (position == 3)
 		{
 			// the last position launches the main activity.
-			Intent intent = new Intent(this, MainActivity.class);
-			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-			startActivity(intent);
+			skipToMainActivity();
 		}
 	}
 
 	@Override
 	public void onLoginOrRegisterSucess() {
+		skipToMainActivity();
+	}
+	
+	private void skipToMainActivity() {
+
 		Intent intent = new Intent(this, MainActivity.class);
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 		startActivity(intent);
+		Settings.setFirstTimeToFalse(this);
 	}
 
 }

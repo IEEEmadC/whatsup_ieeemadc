@@ -1,5 +1,9 @@
 package pt.up.fe.nuieee.whatsup.models;
 
+import java.util.Calendar;
+
+import android.text.format.DateFormat;
+
 
 public class EventModel {
 	
@@ -9,6 +13,12 @@ public class EventModel {
 	private String[] tags;
 	private String date;
 	private String description;
+	
+	public EventModel() {
+
+        Calendar calendar = Calendar.getInstance();
+        date = DateFormat.format("dd-MM-yyyy", calendar.getTime()).toString();
+	}
 	
 	public String getDescription() {
 		return description;

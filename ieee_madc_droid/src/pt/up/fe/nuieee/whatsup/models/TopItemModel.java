@@ -2,15 +2,15 @@ package pt.up.fe.nuieee.whatsup.models;
 
 public class TopItemModel {
 	
-	private String studentBranchName;
+	private String studentBranch;
 	private int ranking;
 	private int points;
 	
 	public String getStudenBranchName() {
-		return studentBranchName;
+		return studentBranch;
 	}
-	public void setStudentBranchName(String studentBranchName) {
-		this.studentBranchName = studentBranchName;
+	public void setStudentBranchName(String studentBranch) {
+		this.studentBranch = studentBranch;
 	}
 	public int getRanking() {
 		return ranking;

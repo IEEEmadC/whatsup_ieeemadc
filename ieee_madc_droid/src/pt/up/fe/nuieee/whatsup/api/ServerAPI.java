@@ -2,12 +2,16 @@ package pt.up.fe.nuieee.whatsup.api;
 
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import pt.up.fe.nuieee.whatsup.models.EventModel;
+import pt.up.fe.nuieee.whatsup.models.EventType;
 import pt.up.fe.nuieee.whatsup.models.TopItemModel;
 
 import com.google.gson.Gson;
+import com.mongodb.AggregationOutput;
+import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
@@ -23,7 +27,8 @@ public class ServerAPI {
 		getEvents,
 		getTopSBs,
 		authenticateStudentBranch,
-		newStudentBranch
+		newStudentBranch,
+		newEvent
 	}
 
 	private static DBCollection dbCollectionEvents;
@@ -89,17 +94,22 @@ public class ServerAPI {
 		checkCollections();
 		ArrayList<DBObject> events = new ArrayList<DBObject>(); 
 
-		//		BasicDBList group = new BasicDBList();
-		//		group.add(new BasicDBObject("_id", "$studentBranch"));
-		//		group.add(new BasicDBObject("points", new BasicDBObject("$sum", "$points")));
-		//		DBObject firstOp = new BasicDBObject("$group", group);
-		//		
-		//		AggregationOutput aggregationOutput = dbCollectionEvents.aggregate(firstOp, group); 
-		//		Iterator<DBObject> cursor = aggregationOutput.results().iterator();
-		//		
-		//		while (cursor.hasNext()) {
-		//			events.add(cursor.next());
-		//		}
+		BasicDBObject group = new BasicDBObject("_id", "$studentBranch");
+		group.put("points", new BasicDBObject("$sum", "$points"));
+		DBObject groupObject = new BasicDBObject("$group", group);
+		
+		BasicDBObject sort = new BasicDBObject();
+		sort.put("points", -1);
+		
+		DBObject sortObject = new BasicDBObject("$sort", sort);
+		
+		AggregationOutput aggregationOutput = dbCollectionEvents.aggregate(groupObject, sortObject);
+		
+		Iterator<DBObject> cursor = aggregationOutput.results().iterator();
+		
+		while (cursor.hasNext()) {
+			events.add(cursor.next());
+		}
 		return events;
 	}
 
@@ -108,8 +118,8 @@ public class ServerAPI {
 		ArrayList<TopItemModel> events = new ArrayList<TopItemModel>();
 		for (DBObject element : queryTopSBList()) {
 
-			String elementJson = ((BasicDBObject) element).toString();
-
+			String elementJson = ((BasicDBObject) element).toString().replaceFirst("_id", "studentBranch");
+					
 			TopItemModel eventModel = new Gson().fromJson(elementJson, TopItemModel.class);
 
 			events.add(eventModel);
@@ -121,15 +131,12 @@ public class ServerAPI {
 	public static Boolean createSB(String name, String location, String email, String password) throws Exception {
 
 		checkCollections();
-		//TODO: check if it exists
-
-		checkCollections();
 		BasicDBObject authenticationObject = new BasicDBObject();
 		authenticationObject.put("name", name);
 		authenticationObject.put("password", password);
 
 		DBObject resultObject = dbCollectionUsers.findOne(authenticationObject); 
- 		if (resultObject != null) {
+		if (resultObject != null) {
 			throw new Exception("SB already registered");
 		}
 		BasicDBObject doc = new BasicDBObject("name", name);
@@ -138,6 +145,23 @@ public class ServerAPI {
 		doc.put("password", password);
 
 		WriteResult result = dbCollectionUsers.insert(doc);
+		return result.getError() == null;
+	}
+
+	public static Boolean newEvent(String title, String sb, String type, String tags, String date, String description) throws Exception {
+
+		checkCollections();
+
+		BasicDBObject doc = new BasicDBObject("title", title);
+		doc.put("studentBranch", sb);
+		doc.put("type", type);
+		doc.put("tags", tags.split(","));
+		doc.put("date", date);
+		doc.put("description", description);
+		doc.put("points", EventType.valueOf(type).points);
+
+
+		WriteResult result = dbCollectionEvents.insert(doc);
 		return result.getError() == null;
 	}
 }
