@@ -3,14 +3,12 @@ package pt.up.fe.nuieee.whatsup.activities;
 import java.util.Locale;
 
 import pt.up.fe.nuieee.whatsup.R;
-<<<<<<< HEAD
-import pt.up.fe.nuieee.whatsup.fragments.NewBranchFragment;
-=======
 import pt.up.fe.nuieee.whatsup.fragments.IntroPage1Fragment;
 import pt.up.fe.nuieee.whatsup.fragments.IntroPage2Fragment;
-
+import pt.up.fe.nuieee.whatsup.fragments.LoginFragment;
+import pt.up.fe.nuieee.whatsup.fragments.LoginOrRegisterStudentBranchFragment;
+import pt.up.fe.nuieee.whatsup.fragments.NewBranchFragment;
 import android.content.Intent;
->>>>>>> 5555ed4ff6bfa62db7d61afa7d73d58b488c6ede
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -19,12 +17,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-<<<<<<< HEAD
-=======
 import android.widget.TextView;
->>>>>>> 5555ed4ff6bfa62db7d61afa7d73d58b488c6ede
 
 public class IntroActivity extends ProgressActivity implements OnPageChangeListener {
 
@@ -37,7 +33,10 @@ public class IntroActivity extends ProgressActivity implements OnPageChangeListe
 	 * {@link android.support.v4.app.FragmentStatePagerAdapter}.
 	 */
 	SectionsPagerAdapter mSectionsPagerAdapter;
+	
+	private boolean mIsRegistering;
 
+	private LoginOrRegisterStudentBranchFragment mFragment;
 	/**
 	 * The {@link ViewPager} that will host the section contents.
 	 */
@@ -61,8 +60,12 @@ public class IntroActivity extends ProgressActivity implements OnPageChangeListe
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.intro, menu);
+		if (mIsRegistering) {
+			getMenuInflater().inflate(R.menu.login, menu);
+		} else {
+			getMenuInflater().inflate(R.menu.new_sb, menu);	
+		}
+		 
 		return true;
 	}
 
@@ -78,30 +81,25 @@ public class IntroActivity extends ProgressActivity implements OnPageChangeListe
 
 		@Override
 		public Fragment getItem(int position) {
-            switch (position) {
-                case 0:
-                    return new IntroPage1Fragment();
-                case 1:
-                    return new IntroPage2Fragment();
-                default:
-                    Fragment fragment = new DummySectionFragment();
-                    Bundle args = new Bundle();
-                    args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
-                    fragment.setArguments(args);
-                    return fragment;
-            }
-			// getItem is called to instantiate the fragment for the given page.
-			// Return a DummySectionFragment (defined as a static inner class
-			// below) with the page number as its lone argument.
-<<<<<<< HEAD
-				fragment = new NewBranchFragment();
+			switch (position) {
+			case 0:
+				return new IntroPage1Fragment();
+			case 1:
+				return new IntroPage2Fragment();
+			case 2:
+				mFragment = new LoginOrRegisterStudentBranchFragment();
+				Bundle fragmentArguments = new Bundle();
+				fragmentArguments.putBoolean(LoginOrRegisterStudentBranchFragment.BUNDLE_IS_REGISTERING, false);
+				mFragment.setArguments(fragmentArguments);
+				return mFragment;
+			default:
+
+				Fragment fragment = new DummySectionFragment();
 				Bundle args = new Bundle();
 				args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
 				fragment.setArguments(args);
-			
-			return fragment;
-=======
->>>>>>> 5555ed4ff6bfa62db7d61afa7d73d58b488c6ede
+				return fragment;
+			}
 		}
 
 		@Override
@@ -126,6 +124,29 @@ public class IntroActivity extends ProgressActivity implements OnPageChangeListe
 		}
 	}
 
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+
+		switch (item.getItemId()) {
+		case R.id.action_new_sb:
+			mIsRegistering = true;
+			mFragment.getArguments()
+				.putBoolean(LoginOrRegisterStudentBranchFragment.BUNDLE_IS_REGISTERING, mIsRegistering);
+			mViewPager.setAdapter(mSectionsPagerAdapter);
+			mViewPager.setCurrentItem(2);
+			return true;
+		case R.id.action_login:
+			mIsRegistering = false;
+			mFragment.getArguments()
+				.putBoolean(LoginOrRegisterStudentBranchFragment.BUNDLE_IS_REGISTERING, mIsRegistering);
+			mViewPager.setAdapter(mSectionsPagerAdapter);
+			mViewPager.setCurrentItem(2);
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		} 
+	}
+
 	/**
 	 * A dummy fragment representing a section of the app, but that simply
 	 * displays dummy text.
@@ -147,7 +168,7 @@ public class IntroActivity extends ProgressActivity implements OnPageChangeListe
 					container, false);
 			TextView dummyTextView = (TextView) rootView
 					.findViewById(R.id.section_label);
-			
+
 			if (getArguments().getInt(ARG_SECTION_NUMBER) != 4)
 			{
 				dummyTextView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
@@ -168,6 +189,8 @@ public class IntroActivity extends ProgressActivity implements OnPageChangeListe
 	public void onPageSelected(int position) {
 		setProgress((int) (position * 100f / 2f), true);
 		
+		invalidateOptionsMenu();
+
 		if (position == 3)
 		{
 			// the last position launches the main activity.

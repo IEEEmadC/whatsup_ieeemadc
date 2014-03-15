@@ -33,25 +33,13 @@ public class HomeFragment extends ListFragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 
-		mEventItems = new ArrayList<EventModel>();
-
-		EventModel item = new EventModel();
-		item.setDate("01-01-2013");
-		item.setPoints(500);
-		item.setStudentBranch("UP");
-		item.setTitle("coisa magnifica");
-		item.setDescription("este evento foi mesmo brutalmente fixe.");
-		item.setType("workshop");
-
-		mEventItems.add(item);
-		mEventItems.add(item);
+		mEventItems = new ArrayList<EventModel>(); 
 
 		mFeedListAdapter = new FeedListAdapter(getActivity(), mEventItems);
 		mFeedListAdapter.setNotifyOnChange(true);
 		setListAdapter(mFeedListAdapter);
 
 		registerForContextMenu(this.getListView());
-
 
 		FetchAsyncTask<List<EventModel>> fetchActivitiesTask = new FetchAsyncTask<List<EventModel>>(
 				new AsyncTaskHandler<List<EventModel>>() {

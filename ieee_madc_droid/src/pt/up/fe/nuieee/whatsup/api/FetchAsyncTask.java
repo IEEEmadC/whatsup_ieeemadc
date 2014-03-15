@@ -46,7 +46,7 @@ public class FetchAsyncTask<T> extends AsyncTask<ServerAPI.Actions, Void, T> {
 			default:
 			
 			}
-		} catch (UnknownHostException e) {
+		} catch (Exception e) {
 			mError = e;
 		}
 		return null;

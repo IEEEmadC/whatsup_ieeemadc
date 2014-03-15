@@ -118,10 +118,20 @@ public class ServerAPI {
 		return events;
 	}
 
-	public static Boolean createSB(String name, String location, String email, String password) throws UnknownHostException {
+	public static Boolean createSB(String name, String location, String email, String password) throws Exception {
 
 		checkCollections();
+		//TODO: check if it exists
 
+		checkCollections();
+		BasicDBObject authenticationObject = new BasicDBObject();
+		authenticationObject.put("name", name);
+		authenticationObject.put("password", password);
+
+		DBObject resultObject = dbCollectionUsers.findOne(authenticationObject); 
+ 		if (resultObject != null) {
+			throw new Exception("SB already registered");
+		}
 		BasicDBObject doc = new BasicDBObject("name", name);
 		doc.put("location", location);
 		doc.put("email", email);

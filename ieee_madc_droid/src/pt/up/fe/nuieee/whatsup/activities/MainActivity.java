@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
 
-	// nav drawer title
+	// nav drawer title  
 	private CharSequence mDrawerTitle;
 
 	// used to store app title

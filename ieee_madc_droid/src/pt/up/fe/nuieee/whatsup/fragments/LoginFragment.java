@@ -4,13 +4,13 @@ import pt.up.fe.nuieee.whatsup.R;
 import pt.up.fe.nuieee.whatsup.api.AsyncTaskHandler;
 import pt.up.fe.nuieee.whatsup.api.FetchAsyncTask;
 import pt.up.fe.nuieee.whatsup.api.ServerAPI;
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -28,6 +28,7 @@ public class LoginFragment extends Fragment {
 	        et_password = (EditText) rootView.findViewById(R.id.et_password);
 	        et_username = (EditText) rootView.findViewById(R.id.et_username);
 	        bt_submit = (Button) rootView.findViewById(R.id.bt_validate_login);
+	        
 	        
 	        bt_submit.setOnClickListener(new OnClickListener() {
 				
