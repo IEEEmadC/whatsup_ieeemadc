@@ -3,7 +3,14 @@ package pt.up.fe.nuieee.whatsup.activities;
 import java.util.Locale;
 
 import pt.up.fe.nuieee.whatsup.R;
+<<<<<<< HEAD
 import pt.up.fe.nuieee.whatsup.fragments.NewBranchFragment;
+=======
+import pt.up.fe.nuieee.whatsup.fragments.IntroPage1Fragment;
+import pt.up.fe.nuieee.whatsup.fragments.IntroPage2Fragment;
+
+import android.content.Intent;
+>>>>>>> 5555ed4ff6bfa62db7d61afa7d73d58b488c6ede
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,6 +21,10 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+<<<<<<< HEAD
+=======
+import android.widget.TextView;
+>>>>>>> 5555ed4ff6bfa62db7d61afa7d73d58b488c6ede
 
 public class IntroActivity extends ProgressActivity implements OnPageChangeListener {
 
@@ -67,16 +78,30 @@ public class IntroActivity extends ProgressActivity implements OnPageChangeListe
 
 		@Override
 		public Fragment getItem(int position) {
-			Fragment fragment;
+            switch (position) {
+                case 0:
+                    return new IntroPage1Fragment();
+                case 1:
+                    return new IntroPage2Fragment();
+                default:
+                    Fragment fragment = new DummySectionFragment();
+                    Bundle args = new Bundle();
+                    args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
+                    fragment.setArguments(args);
+                    return fragment;
+            }
 			// getItem is called to instantiate the fragment for the given page.
 			// Return a DummySectionFragment (defined as a static inner class
 			// below) with the page number as its lone argument.
+<<<<<<< HEAD
 				fragment = new NewBranchFragment();
 				Bundle args = new Bundle();
 				args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
 				fragment.setArguments(args);
 			
 			return fragment;
+=======
+>>>>>>> 5555ed4ff6bfa62db7d61afa7d73d58b488c6ede
 		}
 
 		@Override
@@ -118,16 +143,15 @@ public class IntroActivity extends ProgressActivity implements OnPageChangeListe
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_edit_student_branch_register,
+			View rootView = inflater.inflate(R.layout.fragment_intro_dummy,
 					container, false);
-			/*
 			TextView dummyTextView = (TextView) rootView
 					.findViewById(R.id.section_label);
 			
 			if (getArguments().getInt(ARG_SECTION_NUMBER) != 4)
 			{
 				dummyTextView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
-			}*/
+			}
 			return rootView;
 		}
 	}
@@ -147,7 +171,9 @@ public class IntroActivity extends ProgressActivity implements OnPageChangeListe
 		if (position == 3)
 		{
 			// the last position launches the main activity.
-			
+			Intent intent = new Intent(this, MainActivity.class);
+			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+			startActivity(intent);
 		}
 	}
 
