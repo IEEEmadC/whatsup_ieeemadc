@@ -35,13 +35,14 @@
         android:layout_below="@id/my_sb_points"
         android:id="@+id/sp02"></Space>
     
-    <TextView 
+    <TextView
+        android:id="@+id/my_sb_lv"
         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sp02"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:id="@+id/my_sb_lv"
-        android:text="My activities"
-        android:layout_below="@id/sp02"/>
+        android:text="My activities" />
     
     <Space 
         android:layout_width="fill_parent"
