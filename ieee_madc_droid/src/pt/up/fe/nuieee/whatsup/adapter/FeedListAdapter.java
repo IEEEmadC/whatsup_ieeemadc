@@ -51,8 +51,15 @@ public class FeedListAdapter extends ArrayAdapter<EventModel> {
 		holder.date.setText("" + events.get(position).getDate());
 		holder.studentBranch.setText(events.get(position).getStudentBranch());
 		holder.title.setText(events.get(position).getTitle());
-		if(events.get(position).getType().equals("workshop")) {
+		String eventType = events.get(position).getType().toLowerCase();
+		if (eventType.equals("workshop")) {
 			holder.type.setImageResource(R.drawable.ic_communities);
+		} else if (eventType.equals("conference")) {
+			holder.type.setImageResource(R.drawable.present);
+		} else if (eventType.equals("talk")) {
+			holder.type.setImageResource(R.drawable.talk);
+		} else if (eventType.equals("generic")) {
+			holder.type.setImageResource(R.drawable.ic_generic);
 		} else {
 			holder.type.setImageResource(R.drawable.ic_whats_hot);
 		}
