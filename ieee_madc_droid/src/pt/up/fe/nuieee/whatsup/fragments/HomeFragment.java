@@ -1,10 +1,7 @@
 package pt.up.fe.nuieee.whatsup.fragments;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-import com.google.gson.Gson;
 
 import pt.up.fe.nuieee.whatsup.R;
 import pt.up.fe.nuieee.whatsup.adapter.FeedListAdapter;
@@ -13,9 +10,9 @@ import pt.up.fe.nuieee.whatsup.api.FetchAsyncTask;
 import pt.up.fe.nuieee.whatsup.api.ServerAPI;
 import pt.up.fe.nuieee.whatsup.models.EventModel;
 import android.app.FragmentTransaction;
-import android.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ListFragment;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -23,6 +20,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
 
 public class HomeFragment extends ListFragment {
 

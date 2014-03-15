@@ -5,18 +5,19 @@ import java.util.ArrayList;
 import pt.up.fe.nuieee.whatsup.R;
 import pt.up.fe.nuieee.whatsup.adapter.NavDrawerListAdapter;
 import pt.up.fe.nuieee.whatsup.fragments.HomeFragment;
+import pt.up.fe.nuieee.whatsup.fragments.LoginOrRegisterStudentBranchFragment;
 import pt.up.fe.nuieee.whatsup.fragments.MyStudentBranchFragment;
 import pt.up.fe.nuieee.whatsup.fragments.NewEventsFragment;
 import pt.up.fe.nuieee.whatsup.fragments.TopStudentBranchesFragment;
 import pt.up.fe.nuieee.whatsup.models.NavDrawerItem;
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Menu;
@@ -25,7 +26,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
@@ -179,7 +180,12 @@ public class MainActivity extends Activity {
 			fragment.setArguments(args);
 			break;
 		case 3:
-			fragment = new MyStudentBranchFragment();
+			if(settings.getString("studentBranch", "").equals("")) {
+				fragment = new LoginOrRegisterStudentBranchFragment();
+			} else {
+				fragment = new MyStudentBranchFragment();
+			}
+			
 			break;
 
 		default:
@@ -187,7 +193,7 @@ public class MainActivity extends Activity {
 		}
 
 		if (fragment != null) {
-			FragmentManager fragmentManager = getFragmentManager();
+			FragmentManager fragmentManager = getSupportFragmentManager();
 			fragmentManager.beginTransaction()
 					.replace(R.id.frame_container, fragment).commit();
 

@@ -2,20 +2,62 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/my_student_branch_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"        
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="Student Branch"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <Space 
+        android:id="@+id/sp01"
+        android:layout_below="@id/my_student_branch_title"
+        android:layout_width="fill_parent"
+        android:layout_height="20dp"/>
     
     <TextView
-        android:id="@+id/txtLabel"
-         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textSize="16dp"
-        android:text="My SB's View"/>
+        android:id="@+id/my_sb_points"
+        android:layout_width="fill_parent"
+        android:gravity="center"
+        android:layout_height="30dp"
+        android:layout_below="@id/sp01"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:text="1380 points"/>
     
-    <ImageView android:layout_width="wrap_content"
+    <Space 
+        android:layout_width="fill_parent"
+        android:layout_height="15dp"
+        android:layout_below="@id/my_sb_points"
+        android:id="@+id/sp02"></Space>
+    
+    <TextView 
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:id="@+id/my_sb_lv"
+        android:text="My activities"
+        android:layout_below="@id/sp02"/>
+    
+    <Space 
+        android:layout_width="fill_parent"
+        android:layout_height="25dp"
+        android:layout_below="@id/my_sb_lv"
+        android:id="@+id/sp03"></Space>
+    
+    
+    <ListView 
+        android:id="@+id/my_sb_activities"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txtLabel"
-        android:src="@drawable/ic_communities"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"/>    
+        android:layout_below="@id/sp03">
+        
+    </ListView>
+    
+    
 
 </RelativeLayout>
