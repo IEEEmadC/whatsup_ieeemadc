@@ -1,49 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:padding="12dp"
-              android:background="#ddd"
-              android:paddingTop="12dp"
-              android:paddingBottom="18dp">
-    <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:orientation="vertical"
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ddd"
+    android:baselineAligned="false"
+    android:clickable="false"
+    android:longClickable="false"
+    android:measureWithLargestChild="false"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:paddingBottom="24dp"
+    android:paddingTop="24dp" >
 
-        >
-        <TextView
-                    android:text="@string/first_page"
-                    android:textSize="32dip"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:gravity="center_vertical|center_horizontal"/>
-        <ImageView
-                android:textSize="32dip"
+        <GridLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:rowCount="3"
+            android:columnCount="2"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_columnSpan="2"
                 android:layout_width="match_parent"
-                android:layout_height="324dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal"
+                android:adjustViewBounds="true"
+                android:fitsSystemWindows="false"
+                android:focusableInTouchMode="false"
+                android:src="@drawable/brand" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="fill_vertical"
+                android:layout_row="2"
                 android:gravity="center_vertical|center_horizontal"
-                android:src="@drawable/cup"/>
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_action_next_item" />
 
-        <ImageView android:layout_alignParentBottom="true"
-                   android:text="@string/first_page_thr"
-                   android:textSize="28dip"
-                   android:layout_width="match_parent"
-                   android:layout_height="fill_parent"
-                   android:gravity="center_vertical|center_horizontal"
-                   android:src="@drawable/logo"
-                   android:paddingBottom="10dp"
-                   android:layout_gravity="center_horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="center_horizontal|top"
+                android:layout_row="1"
+                android:gravity="center_vertical|center_horizontal"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cup" />
+            
+        </GridLayout>
 
-        </ImageView>
-
-    </LinearLayout>
-</RelativeLayout>
 </LinearLayout>
