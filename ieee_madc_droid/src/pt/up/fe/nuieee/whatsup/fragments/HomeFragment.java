@@ -95,8 +95,7 @@ public class HomeFragment extends ListFragment {
 
 		EventModel event = mEventItems.get(position);
 		FragmentTransaction transaction = super.getFragmentManager().beginTransaction();
-		transaction.setCustomAnimations(R.animator.slide_in, R.animator.slide_out);
-
+		//transaction.setCustomAnimations(R.animator.slide_in, R.animator.slide_out);
 
 		EventDetailsFragment eventDetails = new EventDetailsFragment();
 		Bundle args = new Bundle();
