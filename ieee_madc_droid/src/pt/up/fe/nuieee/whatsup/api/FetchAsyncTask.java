@@ -2,18 +2,19 @@ package pt.up.fe.nuieee.whatsup.api;
 
 import java.net.UnknownHostException;
 
+import pt.up.fe.nuieee.whatsup.api.ServerAPI.Actions;
 import pt.up.fe.nuieee.whatsup.models.EventModel;
 import pt.up.fe.nuieee.whatsup.models.TopItemModel;
 
 import android.os.AsyncTask;
 
-public class FetchAsyncTask<T> extends AsyncTask<Class, Void, T> {
+public class FetchAsyncTask<T> extends AsyncTask<ServerAPI.Actions, Void, T> {
 
 	private AsyncTaskHandler<T> mHandler;
 	private Exception mError;
-	private Object[] data;
+	private String[] data;
 
-	public FetchAsyncTask(AsyncTaskHandler<T> handler, Object... data) {
+	public FetchAsyncTask(AsyncTaskHandler<T> handler, String... data) {
 		this.mHandler = handler;
 		this.data = data;
 	}
@@ -29,20 +30,21 @@ public class FetchAsyncTask<T> extends AsyncTask<Class, Void, T> {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	protected T doInBackground(Class... params) {
+	protected T doInBackground(ServerAPI.Actions... params) {
 		try {
-			if (params[0] == EventModel.class)
-			{
-				return (T) ServerAPI.getEvents();
-			}
-			else if (params[0] == TopItemModel.class)
-			{
-				return (T) ServerAPI.getTopSBs();
-			}
-			else if(params[0] == Boolean.class) {
-				
+			switch (params[0]) {
+			case authenticateStudentBranch:
 				return (T) ServerAPI.authenticateStudentBranch((String) data[0], (String) data[1]);
+			case getEvents:
+				return (T) ServerAPI.getEvents();
+			case getTopSBs:
+				return (T) ServerAPI.getTopSBs();
+			case newStudentBranch:
+				return (T) ServerAPI.createSB(data[0], data[1], data[2], data[3]);
+			default:
+			
 			}
 		} catch (UnknownHostException e) {
 			mError = e;
