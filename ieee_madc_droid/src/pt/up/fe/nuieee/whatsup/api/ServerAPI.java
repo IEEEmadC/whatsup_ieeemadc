@@ -28,7 +28,8 @@ public class ServerAPI {
 		getTopSBs,
 		authenticateStudentBranch,
 		newStudentBranch,
-		newEvent
+		newEvent,
+		getEventsOfSB
 	}
 
 	private static DBCollection dbCollectionEvents;
@@ -73,11 +74,39 @@ public class ServerAPI {
 		}
 		return events;
 	}
+	
+	private static List<DBObject> queryEventsOfSBList(String sb) throws UnknownHostException 
+	{
+		checkCollections();
+		ArrayList<DBObject> events = new ArrayList<DBObject>();
+		BasicDBObject doc = new BasicDBObject("studentBranch", sb);
+		DBCursor eventsCursor = dbCollectionEvents.find(doc);
+
+		while (eventsCursor.hasNext()) {
+			events.add(eventsCursor.next());
+		}
+		return events;
+	}
 
 	public static List<EventModel> getEvents() throws UnknownHostException {
 
 		ArrayList<EventModel> events = new ArrayList<EventModel>();
 		for (DBObject element : queryEventsList()) {
+
+			String elementJson = ((BasicDBObject) element).toString();
+
+			EventModel eventModel = new Gson().fromJson(elementJson, EventModel.class);
+
+			events.add(eventModel);
+		}
+
+		return events;
+	}
+	
+	public static List<EventModel> getEventsOfSB(String sb) throws UnknownHostException {
+
+		ArrayList<EventModel> events = new ArrayList<EventModel>();
+		for (DBObject element : queryEventsOfSBList(sb)) {
 
 			String elementJson = ((BasicDBObject) element).toString();
 

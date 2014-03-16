@@ -39,6 +39,8 @@ public class FetchAsyncTask<T> extends AsyncTask<ServerAPI.Actions, Void, T> {
 				return (T) ServerAPI.createSB(data[0], data[1], data[2], data[3]);
 			case newEvent:
 				return (T) ServerAPI.newEvent(data[0], data[1], data[2], data[3], data[4], data[5]);
+			case getEventsOfSB:
+				return (T) ServerAPI.getEventsOfSB(data[0]);
 			default:
 			
 			}
